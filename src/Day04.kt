@@ -1,6 +1,7 @@
 @file:Suppress("PackageDirectoryMismatch")
 package day4
 
+import noSolution
 import readInput
 
 private data class Cell(val num: Int, var marked: Boolean = false)
@@ -10,8 +11,8 @@ fun main() {
 
   fun part1(input: List<String>): Int {
     fun calc(num: Int, board: MutableList<MutableList<Cell>>): Int {
-      val unmarked = board.sumBy { row ->
-        row.sumBy { cell ->
+      val unmarked = board.sumOf { row ->
+        row.sumOf { cell ->
           if (!cell.marked) cell.num
           else 0
         }
@@ -67,13 +68,13 @@ fun main() {
         }
       }
     }
-    error("No solution")
+    noSolution()
   }
 
   fun part2(lines: List<String>): Int {
     fun calc(num: Int, board: MutableList<MutableList<Cell>>): Int {
-      val unmarked = board.sumBy { row ->
-        row.sumBy { cell ->
+      val unmarked = board.sumOf { row ->
+        row.sumOf { cell ->
           if (!cell.marked) cell.num
           else 0
         }
@@ -138,7 +139,7 @@ fun main() {
         }
       }
     }
-    error("No solution found")
+    noSolution()
   }
 
   val input = readInput("Day04")
